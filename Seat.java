@@ -8,6 +8,7 @@ public class Seat {
 		this.name = row + "" + seat;
 		this.type = type;
 		this.cabin = cabin;
+		this.passenger = null;
 	}
 	
 	public SeatType getSeatType() {
@@ -27,6 +28,8 @@ public class Seat {
 	}
 	
 	public String toString() {
-		return name;
+		if(!passenger.equals(null))
+			return name;
+		return name + " " + passenger.getName();
 	}
 }
