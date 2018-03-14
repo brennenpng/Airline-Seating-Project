@@ -1,0 +1,32 @@
+2
+Isaac Rubin	First	W
+Coco Rubin	First	A
+
+4
+Travis Selfrigde	Econ	C
+Molly Selfridge		Econ	A
+William Selfridge	Econ	W
+Katie Selfridge		Econ	A
+
+3
+Sally Richmond			Econ	C
+Tyler Smithtro			Econ	W
+Christopher Smithtro	Econ 	A
+
+3
+Joseph D'Amico		Econ	W
+Adrianne D'Amico	Econ	A
+Francesca D'Amico	Econ	C
+
+1
+Tom Light	First	A
+
+1
+Jenna Hall	Econ 	W
+
+1
+Natasha Pignatelli	Econ	A
+
+2
+Jenn Erickson	Econ	C
+Jeff Erickson	Econ	A
