@@ -1,32 +1,32 @@
 2
-Isaac Rubin	First	W
-Coco Rubin	First	A
+Isaac Rubin	FIRST	WIN
+Coco Rubin	FIRST	AIS
 
 4
-Travis Selfrigde	Econ	C
-Molly Selfridge		Econ	A
-William Selfridge	Econ	W
-Katie Selfridge		Econ	A
+Travis Selfrigde	ECON	CEN
+Molly Selfridge		ECON	AIS
+William Selfridge	ECON	WIN
+Katie Selfridge		ECON	AIS
 
 3
-Sally Richmond			Econ	C
-Tyler Smithtro			Econ	W
-Christopher Smithtro	Econ 	A
+Sally Richmond			ECON	CEN
+Tyler Smithtro			ECON	WIN
+Christopher Smithtro	ECON 	AIS
 
 3
-Joseph D'Amico		Econ	W
-Adrianne D'Amico	Econ	A
-Francesca D'Amico	Econ	C
+Joseph D'Amico		ECON	WIN
+Adrianne D'Amico	ECON	AIS
+Francesca D'Amico	ECON	CEN
 
 1
-Tom Light	First	A
+Tom Light	FIRST	AIS
 
 1
-Jenna Hall	Econ 	W
+Jenna Hall	ECON 	WIN
 
 1
-Natasha Pignatelli	Econ	A
+Natasha Pignatelli	ECON	AIS
 
 2
-Jenn Erickson	Econ	C
-Jeff Erickson	Econ	A
+Jenn Erickson	ECON	CEN
+Jeff Erickson	ECON	AIS
