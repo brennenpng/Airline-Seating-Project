@@ -6,11 +6,19 @@ public class Passenger {
 	private SeatClass seatClass;
 	private SeatType seatType;
 	
+	
+	/*
+	 * receives scanner that reads data file
+	 * reads passenger name, class, and seat type
+	 * assigns them to their respective variables
+	 */
 	public Passenger(Scanner inFile) {
 		name = inFile.next() + " " + inFile.next();
-		seatClass = stringToSeatClass(inFile.next());
-		seatType = stringToSeatType(inFile.next());
+		seatClass = SeatClass.valueOf(inFile.next());
+		seatType = SeatType.valueOf(inFile.next());
 	}
+	
+	//---------------------------------------------------------------------------------------------------------------------------------------
 	
 	public static SeatClass stringToSeatClass(String s) {
 		switch(s) {
@@ -28,6 +36,10 @@ public class Passenger {
 		default: return SeatType.AIS;
 		}
 	}
+	
+	//---------------------------------------------------------------------------------------------------------------------------------------
+	
+	/* getters and toString */
 	
 	public String getName() {
 		return name;
