@@ -1,3 +1,4 @@
+//Mitali Chowdhury
 public class Seat {
 	SeatType type; //Window, Aisle, or Center
 	SeatClass cabin; //First or Economy
@@ -5,7 +6,11 @@ public class Seat {
 	Passenger passenger; //Who is sitting here
 	
 	public Seat(int row, char seat, SeatType type, SeatClass cabin) {
-		this.name = (row + 1) + "" + seat;
+		//sets seat number based on class
+		if(cabin == SeatClass.FIRST)
+			this.name = (row + 1) + "" + seat;
+		else
+			this.name = (row + 6) + "" + seat;
 		this.type = type;
 		this.cabin = cabin;
 		this.passenger = null;
@@ -29,7 +34,7 @@ public class Seat {
 	
 	public String toString() {
 		if(this.passenger == null)
-			return name;
-		return name + " " + passenger.getName();
+			return "";
+		return passenger.getName() + "\tSeat " + this.name + "\n";
 	}
 }
