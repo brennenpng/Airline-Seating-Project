@@ -1,11 +1,11 @@
 public class Seat {
-	SeatType type;
-	SeatClass cabin;
-	String name;
-	Passenger passenger;
+	SeatType type; //Window, Aisle, or Center
+	SeatClass cabin; //First or Economy
+	String name; //Row # and Spot
+	Passenger passenger; //Who is sitting here
 	
 	public Seat(int row, char seat, SeatType type, SeatClass cabin) {
-		this.name = row + "" + seat;
+		this.name = (row + 1) + "" + seat;
 		this.type = type;
 		this.cabin = cabin;
 		this.passenger = null;
@@ -28,7 +28,7 @@ public class Seat {
 	}
 	
 	public String toString() {
-		if(!passenger.equals(null))
+		if(this.passenger == null)
 			return name;
 		return name + " " + passenger.getName();
 	}
