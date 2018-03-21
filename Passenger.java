@@ -20,25 +20,6 @@ public class Passenger {
 	
 	//---------------------------------------------------------------------------------------------------------------------------------------
 	
-	public static SeatClass stringToSeatClass(String s) {
-		switch(s) {
-		case "First": return SeatClass.FIRST;
-		case "Econ": return SeatClass.ECON;
-		default: return SeatClass.ECON;
-		}
-	}
-	
-	public static SeatType stringToSeatType(String s) {
-		switch(s) {
-		case "W": return SeatType.WIN;
-		case "C": return SeatType.CEN;
-		case "A": return SeatType.AIS;
-		default: return SeatType.AIS;
-		}
-	}
-	
-	//---------------------------------------------------------------------------------------------------------------------------------------
-	
 	/* getters and toString */
 	
 	public String getName() {
