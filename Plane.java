@@ -1,3 +1,4 @@
+//Mitali Chowdhury
 import java.util.ArrayList;
 
 public class Plane {
@@ -23,79 +24,94 @@ public class Plane {
 		}
 		
 		//fill seats
-		int rowF = 0, seatF = 0, rowE = 0, seatE = 0; //keeping track
+		getSeats(groups);
+	}
+	
+	public void getSeats(ArrayList<Group> groups) {
 		for(int i = 0; i < groups.size(); i++) { 
+			int row = 0, seat = 0; //keeping track
 			//check if first class
 			if(groups.get(i).getSeatClass() == SeatClass.FIRST) {
-				//check if group can fit in the row
-				if(!(seatF + groups.get(i).getGroupSize() < 4)) {
-					rowF++;
-					seatF = 0;
-				}
-				for(int j = 0; j < groups.get(i).getGroupSize(); j++) {
-					//find a seat for each passenger
-					//assign passenger to seat
-					firstClass[rowF][getSeat(SeatClass.FIRST, rowF, seatF, groups.get(i).getPassengerAt(j).getSeatType())].setPassenger(groups.get(i).getPassengerAt(j));
-				}
-				//move placeholder values
-				while(firstClass[rowF][seatF].getPassenger() != null) {
-					if(seatF < 3)
-						seatF++;
-					else {
-						seatF = 0;
-						rowF++;
+				if(groups.get(i).getGroupSize() == 1) {
+					//if single passenger, find an empty seat matching preference
+					while(firstClass[row][seat].getPassenger() != null || firstClass[row][seat].getSeatType() != groups.get(i).getPassengerAt(0).getSeatType()) {
+						if(seat < 3)
+							seat++;
+						else {
+							seat = 0;
+							row++;
+						}
+					}
+					firstClass[row][seat].setPassenger(groups.get(i).getPassengerAt(0));
+				} else {
+					//if group, check if group can fit in the row
+					while(!(seat + groups.get(i).getGroupSize() < 4) || firstClass[row][seat].getPassenger() != null) {
+						if(seat < 3)
+							seat++;
+						else {
+							seat = 0;
+							row++;
+						}
+					}
+					
+					for(int j = 0; j < groups.get(i).getGroupSize(); j++) {
+						//find a seat for each passenger
+						int x = 0;
+						while(firstClass[row][seat + x].getSeatType() != groups.get(i).getPassengerAt(j).getSeatType() || firstClass[row][seat + x].getPassenger() != null)
+							x++;
+						//assign passenger to seat
+						firstClass[row][seat + x].setPassenger(groups.get(i).getPassengerAt(j));
 					}
 				}
 			} else {
 				//check if group can fit in the row
-				if(!(seatE + groups.get(i).getGroupSize() < 6)) {
-					rowE++;
-					seatE = 0;
-				}
-				for(int j = 0; j < groups.get(i).getGroupSize(); j++) {
-					//find a seat for each passenger
-					//assign passenger to seat
-					economyClass[rowE][getSeat(SeatClass.ECON, rowE, seatE, groups.get(i).getPassengerAt(j).getSeatType())].setPassenger(groups.get(i).getPassengerAt(j));
-				}
-				while(economyClass[rowE][seatE].getPassenger() != null) {
-					if(seatE < 5)
-						seatE++;
-					else {
-						seatE = 0;
-						rowE++;
+				if(groups.get(i).getGroupSize() == 1) {
+					while(economyClass[row][seat].getPassenger() != null || economyClass[row][seat].getSeatType() != groups.get(i).getPassengerAt(0).getSeatType()) {
+						if(seat < 5)
+							seat++;
+						else {
+							seat = 0;
+							row++;
+						}
+					}
+					economyClass[row][seat].setPassenger(groups.get(i).getPassengerAt(0));
+				} else {
+					//check if group can fit in the row
+					while(!(seat + groups.get(i).getGroupSize() < 6) || economyClass[row][seat].getPassenger() != null) {
+						if(seat < 5)
+							seat++;
+						else {
+							seat = 0;
+							row++;
+						}
+					}
+					
+					for(int j = 0; j < groups.get(i).getGroupSize(); j++) {
+						//find a seat for each passenger
+						int x = 0;
+						while(economyClass[row][seat + x].getSeatType() != groups.get(i).getPassengerAt(j).getSeatType() || economyClass[row][seat + x].getPassenger() != null) {
+							x++;
+						}
+						//assign passenger to seat
+						economyClass[row][seat + x].setPassenger(groups.get(i).getPassengerAt(j));
 					}
 				}
 			}
 		}
-	}
-	
-	public int getSeat(SeatClass c, int row, int firstSeat, SeatType type) {
-		int x = 0;
-		//check for class
-		if(c == SeatClass.FIRST) {
-			//find empty matching seat
-			while(firstClass[row][firstSeat + x].getSeatType() != type || firstClass[row][firstSeat + x].getPassenger() != (null))
-				x++;
-		} else {
-			//find empty matching seat
-			while(economyClass[row][firstSeat + x].getSeatType() != type || economyClass[row][firstSeat + x].getPassenger() != (null))
-				x++;
-		}
-		return firstSeat + x;
 	}
 	
 	public void printPlane() {
 		System.out.println("First Class");
 		for(int i = 0; i < firstClass.length; i++) {
 			for(int j = 0; j < firstClass[i].length; j++) {
-				System.out.println(firstClass[i][j]);
+				System.out.print(firstClass[i][j]);
 			}
-			System.out.println();
 		}
-		System.out.println("Economy Class");
+		
+		System.out.println("\nEconomy Class");
 		for(int i = 0; i < economyClass.length; i++) {
 			for(int j = 0; j < economyClass[i].length; j++) {
-				System.out.println(economyClass[i][j]);
+				System.out.print(economyClass[i][j]);
 			}
 			System.out.println();
 		}
